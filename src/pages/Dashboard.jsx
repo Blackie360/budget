@@ -10,7 +10,7 @@ import Intro from "../components/Intro";
 //  helper functions
 import { createBudget, fetchData } from "../helpers"
 import AddBudgetForm from "../components/AddBudgetForm";
-
+import AddExpenseForm from "../components/AddExpenseForm";
 // loader
 export function dashboardLoader() {
   const userName = fetchData("userName");
@@ -64,7 +64,7 @@ const Dashboard = () => {
             <div className="flex-lg">
               <AddBudgetForm />
               <AddExpenseForm budgets =
-              {budgets} />
+              {budgets} className/>
               </div>
              </div>
           ) 
