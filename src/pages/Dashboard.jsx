@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import Intro from "../components/Intro";
 
 //  helper functions
-import { createBudget, fetchData } from "../helpers"
+import { createBudget, fetchData, createExpense } from "../helpers"
 import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
 // loader
@@ -44,6 +44,19 @@ if (_action === "createBudget") {
   } catch (e) {
     throw new  Error ("There was a problem generating your budget.")
   }
+  }
+  if (_action === "createExpense") {
+    try {
+      //create new expense
+      createExpense({
+        name: values.newExpense,
+        amount: values.newExpenseAmount,
+        budgetId: values.newExpenseBudget
+      })
+      return toast.success(`Expense ${values.newExpense} created!`)
+    } catch (e) {
+      throw new Error("There was a problem creating your expense.")
+    }
   }
   
 }
