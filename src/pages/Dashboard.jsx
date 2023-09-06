@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import Intro from "../components/Intro";
 
 //  helper functions
-import { createBudget, fetchData } from "../helpers"
+import { createBudget, createExpense, fetchData } from "../helpers"
 import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
 // loader
@@ -32,6 +32,10 @@ if (_action === "newUser") {
     throw new Error("There was a problem creating your account.")
   }
 }
+
+
+
+
 if (_action === "createBudget") {
   try{
     //create new budget 
@@ -44,9 +48,22 @@ if (_action === "createBudget") {
   } catch (e) {
     throw new  Error ("There was a problem generating your budget.")
   }
-  }
-  
 }
+//create new expense
+if (_action === "createExpense") {
+  try {
+    createExpense({
+      name: values.newExpense,
+      amount: values.newExpenseAmount,
+      budgetId: values.newExpenseBudget
+    })
+    return toast.success(`Expense ${values.newExpense} created!`)
+  } catch (e) {
+    throw new Error("There was a problem creating your expense.")
+  }
+}
+}
+
 
 const Dashboard = () => {
   const { userName, budgets } = useLoaderData()
@@ -66,6 +83,7 @@ const Dashboard = () => {
               <AddExpenseForm budgets =
               {budgets} className/>
               </div>
+              <h2>Existing Budgets</h2>
              </div>
           ) 
           : (
@@ -85,5 +103,6 @@ const Dashboard = () => {
       ) : <Intro />}
     </>
   )
-}
+};
+
 export default Dashboard
