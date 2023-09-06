@@ -1,7 +1,6 @@
 import { CurrencyDollarIcon } from "@heroicons/react/24/solid";
 import { useEffect, useRef } from "react";
-import { Form, useFetcher } from "react-router-dom";
-
+import { Form, useFetcher } from "react-router-dom"
 const AddBudgetForm = () => {
   const fetcher = useFetcher();
   const isSubmitting = fetcher.state === "submitting";
@@ -17,10 +16,10 @@ const AddBudgetForm = () => {
   }, [isSubmitting])
   
   return (
-    <div className="max-w-xl mx-auto lg:ml-0 lg:w-2/3 p-4 sm:p-8"> {/* Adjust max-w-xl, lg:ml-0, and lg:w-2/3 for the desired width */}
+    <div className="max-w-xl mx-auto lg:ml-0 lg:w-2/3 p-4 sm:p-8"> 
       <h3 className="text-2xl lg:text-3xl">Create Budget</h3>
       <fetcher.Form
-        method="POST"
+         method="POST"
         className="bg-white shadow-md rounded-lg border-dotted border border-gray-300 p-4 sm:p-8"
         ref={formRef}   
       >

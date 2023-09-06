@@ -1,17 +1,9 @@
-import React, { useEffect } from 'react';
-import CountUp from 'react-countup';
+import React from 'react';
+
 
 const BudgetItem = ({ budget }) => {
-  const { name, amount, id } = budget;
-
-  const [cardOpen, setCardOpen] = React.useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setCardOpen(true);
-    }, 100);
-  }, []);
-
+  const { id, name, amount, } = budget;
+  
   return (
       <div className="bg-slate-50 text-black-500 rounded shadow-xl py-2 px-4 w-full sm:w-2/3 md:w-1/2 lg:w-1/3">
         <div className="flex w-full justify-between mb-2">

@@ -45,3 +45,13 @@ export const createExpense = ({
 export const deleteItem = ({ key }) => {
   return localStorage.removeItem(key)
 }
+ //formating
+
+
+ //format curreny
+ export const formatCurrency = (amt) => {
+  return amt.toLocaleString(undefined, {
+    style: "currency",
+    currency: "KES"
+  })
+ }
