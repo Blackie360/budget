@@ -1,38 +1,29 @@
-// reacts
-import { useEffect, useRef } from "react";
-
-// rrd imports
-import { Form, useFetcher } from "react-router-dom"
-
-// library imports
-import { CurrencyDollarIcon } from "@heroicons/react/24/solid"
+import React, { useEffect, useRef } from "react";
+import { Form, useFetcher } from "react-router-dom";
+import { CurrencyDollarIcon } from "@heroicons/react/24/solid";
 
 const AddBudgetForm = () => {
   const fetcher = useFetcher();
-  const isSubmitting = fetcher.state === "submitting"
+  const isSubmitting = fetcher.state === "submitting";
 
   const formRef = useRef();
   const focusRef = useRef();
 
   useEffect(() => {
     if (!isSubmitting) {
-      formRef.current.reset()
-      focusRef.current.focus()
+      formRef.current.reset();
+      focusRef.current.focus();
     }
-  }, [isSubmitting])
+  }, [isSubmitting]);
 
   return (
-    <div className="form-wrapper">
-      <h2 className="h3">
-        Create budget
-      </h2>
-      <fetcher.Form
-        method="post"
-        className="grid-sm"
-        ref={formRef}
-      >
-        <div className="grid-xs">
-          <label htmlFor="newBudget">Budget Name</label>
+    <div className="form-wrapper p-4 bg-white rounded-lg shadow-md">
+      <h2 className="text-xl font-semibold mb-4">Create <span className="text-purple-500">Budget </span></h2>
+      <Form method="post" className="grid gap-4" ref={formRef}>
+        <div className="grid">
+          <label htmlFor="newBudget" className="text-sm font-semibold">
+            Budget Name
+          </label>
           <input
             type="text"
             name="newBudget"
@@ -40,10 +31,13 @@ const AddBudgetForm = () => {
             placeholder="e.g., Groceries"
             required
             ref={focusRef}
+            className="w-full border rounded-md py-2 px-3 focus:outline-none focus:ring focus:border-blue-400"
           />
         </div>
-        <div className="grid-xs">
-          <label htmlFor="newBudgetAmount">Amount</label>
+        <div className="grid">
+          <label htmlFor="newBudgetAmount" className="text-sm font-semibold">
+            Amount
+          </label>
           <input
             type="number"
             step="0.01"
@@ -52,21 +46,31 @@ const AddBudgetForm = () => {
             placeholder="e.g., $350"
             required
             inputMode="decimal"
+            className="w-full border rounded-md py-2 px-3 focus:outline-none focus:ring focus:border-purple-400"
           />
         </div>
         <input type="hidden" name="_action" value="createBudget" />
-        <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
-          {
-            isSubmitting ? <span>Submitting…</span> : (
+        <div className="flex items-center">
+        <button
+            type="submit"
+            className={`bg-violet-400 rounded-full flex items-center justify-center ${
+              isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+            }`}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <span>Submitting...</span>
+            ) : (
               <>
-                <span>Create budget</span>
+                <span className="mr-2">Create Budget</span>
                 <CurrencyDollarIcon width={20} />
               </>
-            )
-          }
-        </button>
-      </fetcher.Form>
+            )}
+          </button>
+        </div>
+      </Form>
     </div>
-  )
-}
-export default AddBudgetForm
+  );
+};
+
+export default AddBudgetForm;

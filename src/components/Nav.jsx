@@ -1,42 +1,40 @@
-// rrd imports
-import { Form, NavLink } from "react-router-dom"
-
-// library
-import { TrashIcon } from '@heroicons/react/24/solid'
-
-// assets
-import logomark from "../assets/logomark.svg"
+import React from "react";
+import { Form, NavLink } from "react-router-dom";
+import { TrashIcon } from "@heroicons/react/24/solid";
+import logomark from "../assets/logomark.svg";
 
 const Nav = ({ userName }) => {
   return (
-    <nav>
+    <nav className="bg-transparent p-4 flex items-center justify-between">
       <NavLink
         to="/"
         aria-label="Go to home"
+        className="flex items-center space-x-2 text-white hover:animate-pulse"
       >
-        <img src={logomark} alt="" height={30} />
-        <span>HomeBudget</span>
+        <img src={logomark} alt="" height={30} className="hover:animate-bounce" />
+        <span className="text-xl text-purple-500 font-bold hover:underline">YoBudget</span>
       </NavLink>
-      {
-        userName && (
-          <Form
-            method="post"
-            action="logout"
-            onSubmit={(event) => {
-              if (!confirm("Delete user and all data?")) {
-                event.preventDefault()
-              }
-            }}
+      {userName && (
+        <Form
+          method="post"
+          action="logout"
+          onSubmit={(event) => {
+            if (!window.confirm("Delete user and all data?")) {
+              event.preventDefault();
+            }
+          }}
+        >
+          <button
+            type="submit"
+            className="bg-purple-600 text-white py-1 px-2 rounded-lg flex items-center hover:bg-red-700 hover:text-white"
           >
-            <button type="submit" className="btn btn--warning">
-              <span>Delete User</span>
-              <TrashIcon width={20} />
-            </button>
-
-          </Form>
-        )
-      }
+            <span>Delete User</span>
+            <TrashIcon width={20} className="ml-1" />
+          </button>
+        </Form>
+      )}
     </nav>
-  )
-}
-export default Nav
+  );
+};
+
+export default Nav;
