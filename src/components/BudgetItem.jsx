@@ -36,6 +36,7 @@ const BudgetItem = ({ budget, showDelete = false }) => {
         </progress>
         <div className="flex justify-between">
           <small>{formatCurrency(spent)} spent</small>
+          <br></br>
           <small>{formatCurrency(amount - spent)} remaining</small>
         </div>
         {showDelete ? (
