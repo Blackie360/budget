@@ -1,34 +1,29 @@
-import React from 'react';
-
+// helper functions
+import { calculateSpentByBudget, formatCurrency, formatPercentage } from "../helpers";
 
 const BudgetItem = ({ budget }) => {
-  const { id, name, amount, } = budget;
-  
-  return (
-      <div className="bg-slate-50 text-black-500 rounded shadow-xl py-2 px-4 w-full sm:w-2/3 md:w-1/2 lg:w-1/3">
-        <div className="flex w-full justify-between mb-2">
-          <h3 className="text-purple-500">{name}</h3>
-          <p>{amount} budgeted</p>
-        </div>
-        <div>
-          <div className="pb-1 lg:pb-2">
-            <h4 className="text-2xl lg:text-3xl text-black font-semibold leading-tight inline-block">
-              {amount}
-            </h4>
-            <div className="mb-2 h-1 w-full bg-neutral-200 dark:bg-neutral-600">
-              <div
-                className="h-1 bg-green-500"
-                style={{ width: "50%" }}
-              ></div>
-            </div>
-          </div>
-          <div className="flex w-full justify-between">
-            <small className="text-purple-500">....spent</small>
-            <small>...remain</small>
-          </div>
-        </div>
-      </div>
-  );
-};
+  const { id, name, amount, color } = budget;
+  const spent = calculateSpentByBudget(id);
 
-export default BudgetItem;
+  return (
+    <div
+      className="budget"
+      style={{
+        "--accent": color
+      }}
+    >
+      <div className="progress-text">
+        <h3>{name}</h3>
+        <p>{formatCurrency(amount)} Budgeted</p>
+      </div>
+      <progress max={amount} value={spent}>
+        {formatPercentage(spent / amount)}
+      </progress>
+      <div className="progress-text">
+        <small>{formatCurrency(spent)} spent</small>
+        <small>{formatCurrency(amount - spent)} remaining</small>
+      </div>
+    </div>
+  )
+}
+export default BudgetItem
