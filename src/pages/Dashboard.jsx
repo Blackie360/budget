@@ -97,7 +97,8 @@ const Dashboard = () => {
                   </div>
                 </div>
                 
-                <div className="flex-shrink-0">
+                <div className="">
+                
                   {budgets.map((budget) => (
                     <BudgetItem key={budget.id} budget={budget} />
                   ))}

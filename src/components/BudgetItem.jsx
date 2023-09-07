@@ -13,7 +13,11 @@ const BudgetItem = ({ budget, showDelete = false }) => {
   return (
     <div className="lg:flex lg:justify-end"> {/* Container with flex layout */}
       <div className="budget p-4 bg-white rounded-lg shadow-md border-dashed border-2 border-purple-200">
+      <h2 className="col-span-full text-xl font-semibold mb-2">
+                  Existing <span className="text-purple-500 font-sans">Budgets</span>
+                </h2>
         <div className="flex justify-between">
+          
           <h3 className="text-purple-400">{name}</h3>
           <p>{formatCurrency(amount)} Budgeted</p>
         </div>
@@ -62,8 +66,7 @@ const BudgetItem = ({ budget, showDelete = false }) => {
           <div className="flex-sm mt-2">
             <Link
               to={`/budget/${id}`}
-              className="btn text-purple-500 hover:text-blue-900"
-            >
+              className="border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 m-2 flex items-center justify-center gap-1 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline"            >
               <span>View Details</span>
               <BanknotesIcon width={20} className="ml-1" />
             </Link>
