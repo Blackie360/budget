@@ -26,10 +26,11 @@ const Intro = () => {
               className="w-full border-2 border-dashed rounded-md py-2 px-3 focus:outline-none focus:ring focus:border-purple-400"
             />
             <input type="hidden" name="_action" value="newUser" />
+            <br></br>
             <button
               type="submit"
-              className="btn btn--dark inline-flex items-center space-x-2 text-purple-600"
-            >
+              className="border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 m-2 flex items-center justify-center gap-1 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline"
+              >
               <span>Create Account</span>
               <UserPlusIcon width={20} className="ml-1" />
             </button>
