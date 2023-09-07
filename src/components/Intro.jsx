@@ -13,8 +13,7 @@ const Intro = () => {
           </h1>
           <p className="text-lg mb-6">
             Take control of your financial future.
-            
-             Begin your path to financial independence today.
+            Begin your path to financial independence today.
           </p>
           <Form method="post">
             <input
