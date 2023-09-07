@@ -25,8 +25,8 @@ const AddExpenseForm = ({ budgets }) => {
   }, [isSubmitting])
 
   return (
-    <div className="form-wrapper">
-      <h2 className="h3">Add New{" "}<span className="accent">
+    <div className="form-wrapper border-dashed border-2 border-purple-200 rounded-xl">
+      <h2 className="font-semibold">Add New{" "}<span className="text-purple-500">
         {budgets.length === 1 && `${budgets.map((budg) => budg.name)}`}
       </span>{" "}
         Expense
@@ -36,9 +36,11 @@ const AddExpenseForm = ({ budgets }) => {
         className="grid-sm"
         ref={formRef}
       >
-        <div className="expense-inputs">
-          <div className="grid-xs">
-            <label htmlFor="newExpense">Expense Name</label>
+        <div className="">
+          <div className="">
+            <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="newExpense">Expense Name </label>
             <input
               type="text"
               name="newExpense"
@@ -46,23 +48,29 @@ const AddExpenseForm = ({ budgets }) => {
               placeholder="e.g., Coffee"
               ref={focusRef}
               required
+              className="w-full border rounded-md py-2 px-3 focus:outline-none focus:ring focus:border-purple-400"
+
             />
           </div>
-          <div className="grid-xs">
-            <label htmlFor="newExpenseAmount">Amount</label>
+          <br></br>
+          <div className="">
+            <label htmlFor="newExpenseAmount">Amount </label>
             <input
               type="number"
               step="0.01"
               inputMode="decimal"
               name="newExpenseAmount"
               id="newExpenseAmount"
-              placeholder="e.g., 3.50"
+              placeholder="e.g.  3.50"
               required
+              className="w-full border rounded-md py-2 px-3 focus:outline-none focus:ring focus:border-purple-400"
+
             />
           </div>
         </div>
-        <div className="grid-xs" hidden={budgets.length === 1}>
-          <label htmlFor="newExpenseBudget">Budget Category</label>
+        <br></br>
+        <div className="glow-purple-600" hidden={budgets.length === 1}>
+          <label htmlFor="newExpenseBudget">Budget Category </label>
           <select name="newExpenseBudget" id="newExpenseBudget" required>
             {
               budgets
@@ -77,17 +85,23 @@ const AddExpenseForm = ({ budgets }) => {
             }
           </select>
         </div>
+        <br></br>
         <input type="hidden" name="_action" value="createExpense" />
-        <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
-          {
-            isSubmitting ? <span>Submitting…</span> : (
-              <>
-                <span>Add Expense</span>
-                <PlusCircleIcon width={20} />
-              </>
-            )
-          }
-        </button>
+        <button
+          type="submit"
+          className="border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 m-2 flex items-center justify-center gap-1 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline"
+          disabled={isSubmitting}
+          >
+  {isSubmitting ? (
+    <span>Submitting…</span>
+  ) : (
+    <>
+      <span>Add Expense</span>
+      <PlusCircleIcon width={20} className="ml-2" />
+    </>
+  )}
+</button>
+
       </fetcher.Form>
     </div>
   )

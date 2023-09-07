@@ -81,18 +81,23 @@ const Dashboard = () => {
     <>
       {userName ? (
         <div className="dashboard">
-           <h1 className="text-5xl text-black font-bold ">Welcome back, <span className="text-5xl font-bold text-purple-500">{userName}</span></h1>
+          <h1 className="text-5xl text-black font-bold ">
+            Welcome back, <span className="text-5xl font-bold text-purple-500">{userName}</span>
+          </h1>
+          <br />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {budgets && budgets.length > 0 ? (
               <>
-                <div className="col-span-2 flex justify-between items-center mb-4">
-                  <AddBudgetForm />
-                  <AddExpenseForm budgets={budgets} />
+                <div className="col-span-2 flex justify-between items-center flex-col md:flex-row mb-4">
+                  <div className="mb-4 md:mb-0">
+                    <AddBudgetForm />
+                  </div>
+                  <div>
+                    <AddExpenseForm budgets={budgets} />
+                  </div>
                 </div>
-                <h2 className="col-span-full text-xl font-semibold mb-2">
-                  Existing Budgets
-                </h2>
-                <div className="budgets">
+                
+                <div className="flex-shrink-0">
                   {budgets.map((budget) => (
                     <BudgetItem key={budget.id} budget={budget} />
                   ))}

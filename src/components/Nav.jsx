@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, NavLink } from "react-router-dom";
 import { TrashIcon } from "@heroicons/react/24/solid";
-import logomark from "../assets/logomark.svg";
+import budget from "../assets/budget.png"
 
 const Nav = ({ userName }) => {
   return (
@@ -11,7 +11,11 @@ const Nav = ({ userName }) => {
         aria-label="Go to home"
         className="flex items-center space-x-2 text-white hover:animate-pulse"
       >
-        <img src={logomark} alt="" height={30} className="hover:animate-bounce" />
+       <img
+  src={budget}
+  alt=""
+  className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 hover:animate-bounce"
+/>
         <span className="text-xl text-purple-500 font-bold hover:underline">YoBudget</span>
       </NavLink>
       {userName && (

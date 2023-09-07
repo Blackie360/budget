@@ -1,7 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Table from "../components/Table";
 import { deleteItem, fetchData } from "../helpers";
+import { ArrowUturnLeftIcon, HomeIcon } from "@heroicons/react/24/solid";
 
 export async function expensesLoader() {
   const expenses = fetchData("expenses");
@@ -27,6 +28,7 @@ export async function expensesAction({ request }) {
 
 const ExpensesPage = () => {
   const { expenses } = useLoaderData();
+  const navigate = useNavigate();
 
   return (
     <div className="container mx-auto p-4">
@@ -46,6 +48,24 @@ const ExpensesPage = () => {
       ) : (
         <p className="text-lg text-gray-600">No Expenses to show</p>
       )}
+      <div className="flex justify-center ">
+      <button
+          class="inline-block rounded bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-purple shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]"  
+          onClick={() => navigate(-1)}>
+          <ArrowUturnLeftIcon width={20} className="mr-2" />
+            <span>Go Back</span>
+           </button>
+           <Link
+           to="/"
+           className="inline-block rounded bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-purple shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
+            <HomeIcon width={20}  />
+            <span>Go home</span>
+           </Link>
+           
+
+
+        
+      </div>
     </div>
   );
 };
