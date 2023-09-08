@@ -7,7 +7,7 @@ import {
 } from "../helpers";
 
 const BudgetItem = ({ budget, showDelete = false }) => {
-  const { id, name, amount, color } = budget;
+  const { id, name, amount, } = budget;
   const spent = calculateSpentByBudget(id);
 
   return (
@@ -18,7 +18,7 @@ const BudgetItem = ({ budget, showDelete = false }) => {
                 </h2>
         <div className="flex justify-between">
           
-          <h3 className="text-purple-400">{name}</h3>
+          <h3 className="text-purple-400">{name}  </h3>
           <p>{formatCurrency(amount)} Budgeted</p>
         </div>
         <div>

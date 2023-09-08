@@ -43,7 +43,7 @@ const AddBudgetForm = () => {
             step="0.01"
             name="newBudgetAmount"
             id="newBudgetAmount"
-            placeholder="e.g., KES 350"
+            placeholder="e.g., KES  65"
             required
             inputMode="decimal"
             className="w-full border rounded-md py-2 px-3 focus:outline-none focus:ring focus:border-purple-400"

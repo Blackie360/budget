@@ -28,6 +28,12 @@ export const deleteItem = ({ key, id }) => {
   return localStorage.removeItem(key);
 };
 
+// //emoji
+// function getRandomEmoji() {
+//   const randomIndex = Math.floor(Math.random() * emojis.length);
+//   return emojis[randomIndex];
+// }
+
 // create budget
 export const createBudget = ({ name, amount }) => {
   const newItem = {
@@ -36,6 +42,7 @@ export const createBudget = ({ name, amount }) => {
     createdAt: Date.now(),
     amount: +amount,
     color: generateRandomColor(),
+ 
   };
   const existingBudgets = fetchData("budgets") ?? [];
   return localStorage.setItem(
