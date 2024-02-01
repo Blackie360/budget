@@ -21,10 +21,3 @@ YooBudget is a simple and efficient budget-keeping app designed to help you mana
 - **Tailwind CSS**: A utility-first CSS framework that makes styling your app a breeze.
 - **React JS**: A powerful JavaScript library for building user interfaces, providing a fast and interactive experience.
 
-## Getting Started
-
-To run the app locally, follow these steps:
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/Blackie360/yoobudget.git
