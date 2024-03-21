@@ -107,7 +107,7 @@ const Dashboard = () => {
                   <>
                     <div className="col-span-2">
                       <h2 className="text-xl font-semibold mb-2">
-                        Recent Expenses
+                        Recent Expenses/items
                       </h2>
                       <Table
                         expenses={expenses
