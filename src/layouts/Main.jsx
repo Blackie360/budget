@@ -23,6 +23,7 @@ const Main = () => {
       <Nav userName={userName} />
       <main>
         <Outlet />
+        
       </main>
       <Footer />
     </div>
