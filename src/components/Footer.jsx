@@ -1,5 +1,5 @@
 import React from 'react';
-import UserCTA from './UserCTA';
+
 
 const Footer = () => {
   return (

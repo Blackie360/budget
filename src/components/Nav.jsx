@@ -20,11 +20,12 @@ const Nav = ({ userName }) => {
       </NavLink>
       {userName && (
         <div className="flex">
-          <button
+          <NavLink
+            to="/feedback"
             className="bg-red-600 text-white py-1 px-2 rounded-lg flex items-center hover:bg-purple-600 hover:text-white mr-2"
           >
             <span>Feedback</span>
-          </button>
+          </NavLink>
           <form
             method="post"
             action="logout"
