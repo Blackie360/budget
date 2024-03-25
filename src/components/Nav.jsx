@@ -16,7 +16,7 @@ const Nav = ({ userName }) => {
   alt=""
   className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 hover:animate-bounce"
 />
-        <span className="text-xl text-purple-500 font-bold hover:underline">YooBudget</span>
+        <span className="text-xl text-purple-500 font-bold hover:underline">SmartSpend</span>
       </NavLink>
       {userName && (
         <Form
