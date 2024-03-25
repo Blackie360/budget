@@ -40,12 +40,12 @@ const AddExpenseForm = ({ budgets }) => {
           <div className="">
             <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="newExpense">Expense Name </label>
+            htmlFor="newExpense">Item Name </label>
             <input
               type="text"
               name="newExpense"
               id="newExpense"
-              placeholder="e.g., Coffee"
+              placeholder="e.g., Sugar,Cooking Oil"
               ref={focusRef}
               required
               className="w-full border rounded-md py-2 px-3 focus:outline-none focus:ring focus:border-purple-400"
@@ -96,7 +96,7 @@ const AddExpenseForm = ({ budgets }) => {
     <span>Submitting…</span>
   ) : (
     <>
-      <span>Add Expense</span>
+      <span>Add item</span>
       <PlusCircleIcon width={20} className="ml-2" />
     </>
   )}

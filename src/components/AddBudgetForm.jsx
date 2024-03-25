@@ -28,7 +28,7 @@ const AddBudgetForm = () => {
             type="text"
             name="newBudget"
             id="newBudget"
-            placeholder="e.g., Smocha"
+            placeholder="e.g., Groceries"
             required
             ref={focusRef}
             className="w-full border rounded-md py-2 px-3 focus:outline-none focus:ring focus:border-purple-400"
@@ -43,7 +43,7 @@ const AddBudgetForm = () => {
             step="0.01"
             name="newBudgetAmount"
             id="newBudgetAmount"
-            placeholder="e.g., KES  65"
+            placeholder="e.g., KES  100,200"
             required
             inputMode="decimal"
             className="w-full border rounded-md py-2 px-3 focus:outline-none focus:ring focus:border-purple-400"
