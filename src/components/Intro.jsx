@@ -29,7 +29,8 @@ const Intro = () => {
             <br></br>
             <button
               type="submit"
-              className="border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 m-2 flex items-center justify-center gap-1 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline"
+              className="border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 m-2 flex items-center justify-center 
+              gap-1 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline"
               >
               <span>Create Account</span>
               <UserPlusIcon width={20} className="ml-1" />
