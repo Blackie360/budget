@@ -1,4 +1,4 @@
-# YooBudget - Budget Keeping App
+# SmartSpend - Budget Keeping App
 
 YooBudget is a simple and efficient budget-keeping app designed to help you manage your finances with ease. Built using Tailwind CSS and React JS, it offers a clean and intuitive interface to track your expenses effortlessly.
 
